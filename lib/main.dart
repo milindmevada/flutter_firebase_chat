@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_chat/di.dart';
 import 'package:flutter_firebase_chat/pages/home_page.dart';
+import 'package:flutter_firebase_chat/pages/sign_in_page.dart';
 import 'package:flutter_firebase_chat/pages/sign_up_page.dart';
 import 'package:flutter_firebase_chat/pages/splash_page.dart';
 
@@ -26,9 +27,9 @@ class MyApp extends StatelessWidget {
             routes: {
               SplashPage.route: (context) => SplashPage(),
               SignUpPage.route: (context) => SignUpPage(),
+              SignInPage.route: (context) => SignInPage(),
               HomePage.route: (context) => HomePage(),
             },
-            initialRoute: SignUpPage.route,
           );
         } else {
           return Center(child: CircularProgressIndicator());
