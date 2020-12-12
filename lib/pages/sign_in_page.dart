@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_chat/components/app_buttons.dart';
 import 'package:flutter_firebase_chat/components/app_text_field.dart';
-import 'package:flutter_firebase_chat/pages/home_page.dart';
+import 'package:flutter_firebase_chat/pages/users_page.dart';
 import 'package:flutter_firebase_chat/pages/sign_up_page.dart';
 import 'package:flutter_firebase_chat/view_models/auth/sign_in_page_viewmodel.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -101,7 +101,7 @@ class __SignInPageListenersState extends State<_SignInPageListeners> {
           viewModel.setCallBacks(
             onSignInSuccess: () => Navigator.pushNamedAndRemoveUntil(
               context,
-              HomePage.route,
+              UsersPage.route,
               (_) => false,
             ),
             onShowMessage: (msg) {

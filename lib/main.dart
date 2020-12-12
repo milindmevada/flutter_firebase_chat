@@ -1,7 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_chat/di.dart';
-import 'package:flutter_firebase_chat/pages/home_page.dart';
+import 'package:flutter_firebase_chat/pages/chat_detail_page.dart';
+import 'package:flutter_firebase_chat/pages/users_page.dart';
 import 'package:flutter_firebase_chat/pages/sign_in_page.dart';
 import 'package:flutter_firebase_chat/pages/sign_up_page.dart';
 import 'package:flutter_firebase_chat/pages/splash_page.dart';
@@ -28,7 +29,8 @@ class MyApp extends StatelessWidget {
               SplashPage.route: (context) => SplashPage(),
               SignUpPage.route: (context) => SignUpPage(),
               SignInPage.route: (context) => SignInPage(),
-              HomePage.route: (context) => HomePage(),
+              UsersPage.route: (context) => UsersPage(),
+              ChatDetailPage.route: (context) => ChatDetailPage(),
             },
           );
         } else {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase_chat/pages/home_page.dart';
+import 'package:flutter_firebase_chat/pages/users_page.dart';
 import 'package:flutter_firebase_chat/pages/sign_in_page.dart';
 import 'package:flutter_firebase_chat/view_models/splash_viewmodel.dart';
 import 'package:provider/provider.dart';
@@ -42,7 +42,7 @@ class __SplashPageListenersState extends State<_SplashPageListeners> {
           if (!mounted) return;
           Navigator.pushNamedAndRemoveUntil(
             context,
-            HomePage.route,
+            UsersPage.route,
             (route) => false,
           );
         },
