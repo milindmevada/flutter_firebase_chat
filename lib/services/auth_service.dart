@@ -1,10 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_firebase_chat/models/result.dart';
+import 'package:flutter_firebase_chat/models/user_model.dart';
 import 'package:get_it/get_it.dart';
 
 class AuthService {
   final firebaseAuth = GetIt.I<FirebaseAuth>();
+  final fireStore = GetIt.I<FirebaseFirestore>();
+  final _collectionUsers = 'users';
 
   User getCurrentUser() => firebaseAuth.currentUser;
 
@@ -19,6 +23,15 @@ class AuthService {
         password: password,
       );
       await firebaseAuth.currentUser.updateProfile(displayName: nickname);
+      await fireStore
+          .collection(_collectionUsers)
+          .doc(firebaseAuth.currentUser.uid)
+          .set(
+            UserModel(
+              id: firebaseAuth.currentUser.uid,
+              name: nickname,
+            ).toJson(),
+          );
       await firebaseAuth.currentUser.reload();
       return Result.success(firebaseAuth.currentUser);
     } on FirebaseAuthException catch (e) {
@@ -56,5 +69,9 @@ class AuthService {
     } catch (e) {
       return Result.failure('Failed to Sign-In.');
     }
+  }
+
+  Future<void> logout() async {
+    await firebaseAuth.signOut();
   }
 }

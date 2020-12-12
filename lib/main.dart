@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             title: 'FirebaseChat',
             theme: ThemeData.light(),
+            debugShowCheckedModeBanner: false,
             routes: {
               SplashPage.route: (context) => SplashPage(),
               SignUpPage.route: (context) => SignUpPage(),

@@ -27,9 +27,13 @@ abstract class _UsersViewModel with Store {
     result.when(
       success: (data) {
         data.removeWhere((e) => e.id == authService.getCurrentUser().uid);
-        allUsers.addAll(data);
+        allUsers = ObservableList.of(data);
       },
       failure: (_) => null,
     );
+  }
+
+  Future<void> logout() async {
+    authService.logout();
   }
 }
