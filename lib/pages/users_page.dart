@@ -31,6 +31,9 @@ class UsersPage extends StatelessWidget {
                   onTap: () => Navigator.pushNamed(
                     context,
                     ChatDetailPage.route,
+                    arguments: ChatDetailsPageArgs(
+                      vm.allUsers[index],
+                    ),
                   ),
                   leading: CircleAvatar(child: Text(user.name.toInitial())),
                   title: Text(user.name),
