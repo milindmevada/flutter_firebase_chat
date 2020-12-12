@@ -70,6 +70,14 @@ mixin _$SignInPageViewModel on _SignInPageViewModel, Store {
     return _$doSignInAsyncAction.run(() => super.doSignIn());
   }
 
+  final _$signInWithFBAsyncAction =
+      AsyncAction('_SignInPageViewModel.signInWithFB');
+
+  @override
+  Future<void> signInWithFB() {
+    return _$signInWithFBAsyncAction.run(() => super.signInWithFB());
+  }
+
   final _$_SignInPageViewModelActionController =
       ActionController(name: '_SignInPageViewModel');
 

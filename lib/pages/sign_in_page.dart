@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_chat/components/app_buttons.dart';
 import 'package:flutter_firebase_chat/components/app_text_field.dart';
-import 'package:flutter_firebase_chat/pages/users_page.dart';
 import 'package:flutter_firebase_chat/pages/sign_up_page.dart';
+import 'package:flutter_firebase_chat/pages/users_page.dart';
 import 'package:flutter_firebase_chat/view_models/auth/sign_in_page_viewmodel.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
@@ -66,6 +66,11 @@ class SignInPage extends StatelessWidget {
                         SignUpPage.route,
                       ),
                       child: Text("Sign up instead"),
+                    ),
+                    const SizedBox(height: 16),
+                    AppRaisedButton(
+                      text: 'Login / Register with Facebook',
+                      onTap: () => viewModel.signInWithFB(),
                     ),
                   ],
                 ),

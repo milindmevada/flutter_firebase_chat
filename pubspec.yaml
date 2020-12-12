@@ -21,6 +21,7 @@ dependencies:
   cloud_firestore: "^0.14.4"
   rxdart: ^0.24.1
   dash_chat: ^1.1.15
+  flutter_facebook_auth: ^1.0.0
 
 dev_dependencies:
   flutter_test:

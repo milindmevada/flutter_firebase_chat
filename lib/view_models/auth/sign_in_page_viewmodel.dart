@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_firebase_chat/services/auth_service.dart';
+import 'package:flutter_firebase_chat/services/facebook_auth_service.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mobx/mobx.dart';
 
@@ -11,6 +12,7 @@ class SignInPageViewModel = _SignInPageViewModel with _$SignInPageViewModel;
 
 abstract class _SignInPageViewModel with Store {
   final authService = GetIt.I<AuthService>();
+  final fbAuthService = GetIt.I<FaceBookAuthService>();
 
   @observable
   String email;
@@ -59,5 +61,14 @@ abstract class _SignInPageViewModel with Store {
       failure: (err) => _onShowMessage?.call(err),
     );
     signInProgress = false;
+  }
+
+  @action
+  Future<void> signInWithFB() async {
+    final result = await fbAuthService.signInWithFacebook();
+    result.when(
+      success: (data) => _onSignInSuccess?.call(),
+      failure: (err) => _onShowMessage?.call("Couldn't Sign-in"),
+    );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_firebase_chat/services/auth_service.dart';
+import 'package:flutter_firebase_chat/services/facebook_auth_service.dart';
 import 'package:flutter_firebase_chat/services/users_service.dart';
 import 'package:get_it/get_it.dart';
 
@@ -11,4 +12,7 @@ void setUpDi() {
   );
   GetIt.I.registerLazySingleton<AuthService>(() => AuthService());
   GetIt.I.registerLazySingleton<UsersService>(() => UsersService());
+  GetIt.I.registerLazySingleton<FaceBookAuthService>(
+    () => FaceBookAuthService(),
+  );
 }
